@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96CDD8092A2F0B9A00493FF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8082A2F0B9A00493FF2 /* AppDelegate.swift */; };
+		96CDD80B2A2F0B9A00493FF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD80A2A2F0B9A00493FF2 /* SceneDelegate.swift */; };
+		96CDD8132A2F0B9A00493FF2 /* DeezerAPI_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8112A2F0B9A00493FF2 /* DeezerAPI_App.xcdatamodeld */; };
+		96CDD8152A2F0B9B00493FF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CDD8142A2F0B9B00493FF2 /* Assets.xcassets */; };
+		96CDD8182A2F0B9B00493FF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CDD8162A2F0B9B00493FF2 /* LaunchScreen.storyboard */; };
+		96CDD8202A2F0C1100493FF2 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD81F2A2F0C1100493FF2 /* MainTabController.swift */; };
+		96CDD8222A2F0D0D00493FF2 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8212A2F0D0D00493FF2 /* CategoriesController.swift */; };
+		96CDD8242A2F0E1700493FF2 /* ArtistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8232A2F0E1700493FF2 /* ArtistController.swift */; };
+		96CDD82C2A2F231800493FF2 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD82B2A2F231800493FF2 /* Genre.swift */; };
+		96CDD82F2A2F251700493FF2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 96CDD82E2A2F251700493FF2 /* Alamofire */; };
+		96CDD8322A2F252700493FF2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 96CDD8312A2F252700493FF2 /* Kingfisher */; };
+		96CDD8352A2F258300493FF2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 96CDD8342A2F258300493FF2 /* SnapKit */; };
+		96CDD8372A2F29AA00493FF2 /* GenreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8362A2F29AA00493FF2 /* GenreService.swift */; };
+		96CDD8392A2F360F00493FF2 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8382A2F360F00493FF2 /* ServiceManager.swift */; };
+		96CDD83B2A2F3FFD00493FF2 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD83A2A2F3FFD00493FF2 /* CategoryCell.swift */; };
+		96CDD83D2A2F51DA00493FF2 /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD83C2A2F51DA00493FF2 /* GenreViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		96CDD8052A2F0B9A00493FF2 /* DeezerAPI-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DeezerAPI-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CDD8082A2F0B9A00493FF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96CDD80A2A2F0B9A00493FF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		96CDD8122A2F0B9A00493FF2 /* DeezerAPI_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeezerAPI_App.xcdatamodel; sourceTree = "<group>"; };
+		96CDD8142A2F0B9B00493FF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96CDD8172A2F0B9B00493FF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96CDD8192A2F0B9B00493FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96CDD81F2A2F0C1100493FF2 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		96CDD8212A2F0D0D00493FF2 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
+		96CDD8232A2F0E1700493FF2 /* ArtistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistController.swift; sourceTree = "<group>"; };
+		96CDD82B2A2F231800493FF2 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		96CDD8362A2F29AA00493FF2 /* GenreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreService.swift; sourceTree = "<group>"; };
+		96CDD8382A2F360F00493FF2 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		96CDD83A2A2F3FFD00493FF2 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		96CDD83C2A2F51DA00493FF2 /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96CDD8022A2F0B9A00493FF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CDD8352A2F258300493FF2 /* SnapKit in Frameworks */,
+				96CDD8322A2F252700493FF2 /* Kingfisher in Frameworks */,
+				96CDD82F2A2F251700493FF2 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96CDD7FC2A2F0B9900493FF2 = {
+			isa = PBXGroup;
+			children = (
+				96CDD8072A2F0B9A00493FF2 /* DeezerAPI-App */,
+				96CDD8062A2F0B9A00493FF2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96CDD8062A2F0B9A00493FF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD8052A2F0B9A00493FF2 /* DeezerAPI-App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96CDD8072A2F0B9A00493FF2 /* DeezerAPI-App */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD8252A2F21A500493FF2 /* Controller */,
+				96CDD8262A2F21B000493FF2 /* View */,
+				96CDD8272A2F21B500493FF2 /* Model */,
+				96CDD8282A2F21BC00493FF2 /* ViewModel */,
+				96CDD8292A2F21C500493FF2 /* Service */,
+				96CDD82A2A2F228300493FF2 /* Utils */,
+				96CDD8082A2F0B9A00493FF2 /* AppDelegate.swift */,
+				96CDD80A2A2F0B9A00493FF2 /* SceneDelegate.swift */,
+				96CDD8142A2F0B9B00493FF2 /* Assets.xcassets */,
+				96CDD8162A2F0B9B00493FF2 /* LaunchScreen.storyboard */,
+				96CDD8192A2F0B9B00493FF2 /* Info.plist */,
+				96CDD8112A2F0B9A00493FF2 /* DeezerAPI_App.xcdatamodeld */,
+			);
+			path = "DeezerAPI-App";
+			sourceTree = "<group>";
+		};
+		96CDD8252A2F21A500493FF2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD81F2A2F0C1100493FF2 /* MainTabController.swift */,
+				96CDD8212A2F0D0D00493FF2 /* CategoriesController.swift */,
+				96CDD8232A2F0E1700493FF2 /* ArtistController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		96CDD8262A2F21B000493FF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD83A2A2F3FFD00493FF2 /* CategoryCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		96CDD8272A2F21B500493FF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD82B2A2F231800493FF2 /* Genre.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		96CDD8282A2F21BC00493FF2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD83C2A2F51DA00493FF2 /* GenreViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		96CDD8292A2F21C500493FF2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD8382A2F360F00493FF2 /* ServiceManager.swift */,
+				96CDD8362A2F29AA00493FF2 /* GenreService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		96CDD82A2A2F228300493FF2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96CDD8042A2F0B9A00493FF2 /* DeezerAPI-App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96CDD81C2A2F0B9B00493FF2 /* Build configuration list for PBXNativeTarget "DeezerAPI-App" */;
+			buildPhases = (
+				96CDD8012A2F0B9A00493FF2 /* Sources */,
+				96CDD8022A2F0B9A00493FF2 /* Frameworks */,
+				96CDD8032A2F0B9A00493FF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DeezerAPI-App";
+			packageProductDependencies = (
+				96CDD82E2A2F251700493FF2 /* Alamofire */,
+				96CDD8312A2F252700493FF2 /* Kingfisher */,
+				96CDD8342A2F258300493FF2 /* SnapKit */,
+			);
+			productName = "DeezerAPI-App";
+			productReference = 96CDD8052A2F0B9A00493FF2 /* DeezerAPI-App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96CDD7FD2A2F0B9900493FF2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					96CDD8042A2F0B9A00493FF2 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 96CDD8002A2F0B9900493FF2 /* Build configuration list for PBXProject "DeezerAPI-App" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96CDD7FC2A2F0B9900493FF2;
+			packageReferences = (
+				96CDD82D2A2F251700493FF2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				96CDD8302A2F252700493FF2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				96CDD8332A2F258300493FF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			productRefGroup = 96CDD8062A2F0B9A00493FF2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96CDD8042A2F0B9A00493FF2 /* DeezerAPI-App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96CDD8032A2F0B9A00493FF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CDD8182A2F0B9B00493FF2 /* LaunchScreen.storyboard in Resources */,
+				96CDD8152A2F0B9B00493FF2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96CDD8012A2F0B9A00493FF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CDD8092A2F0B9A00493FF2 /* AppDelegate.swift in Sources */,
+				96CDD8202A2F0C1100493FF2 /* MainTabController.swift in Sources */,
+				96CDD8242A2F0E1700493FF2 /* ArtistController.swift in Sources */,
+				96CDD8222A2F0D0D00493FF2 /* CategoriesController.swift in Sources */,
+				96CDD80B2A2F0B9A00493FF2 /* SceneDelegate.swift in Sources */,
+				96CDD83D2A2F51DA00493FF2 /* GenreViewModel.swift in Sources */,
+				96CDD8392A2F360F00493FF2 /* ServiceManager.swift in Sources */,
+				96CDD8132A2F0B9A00493FF2 /* DeezerAPI_App.xcdatamodeld in Sources */,
+				96CDD82C2A2F231800493FF2 /* Genre.swift in Sources */,
+				96CDD8372A2F29AA00493FF2 /* GenreService.swift in Sources */,
+				96CDD83B2A2F3FFD00493FF2 /* CategoryCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		96CDD8162A2F0B9B00493FF2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96CDD8172A2F0B9B00493FF2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		96CDD81A2A2F0B9B00493FF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96CDD81B2A2F0B9B00493FF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96CDD81D2A2F0B9B00493FF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F9V6WPSDK2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DeezerAPI-App/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.burrakerden.DeezerAPI-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96CDD81E2A2F0B9B00493FF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F9V6WPSDK2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DeezerAPI-App/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.burrakerden.DeezerAPI-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96CDD8002A2F0B9900493FF2 /* Build configuration list for PBXProject "DeezerAPI-App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CDD81A2A2F0B9B00493FF2 /* Debug */,
+				96CDD81B2A2F0B9B00493FF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96CDD81C2A2F0B9B00493FF2 /* Build configuration list for PBXNativeTarget "DeezerAPI-App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CDD81D2A2F0B9B00493FF2 /* Debug */,
+				96CDD81E2A2F0B9B00493FF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96CDD82D2A2F251700493FF2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		96CDD8302A2F252700493FF2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		96CDD8332A2F258300493FF2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96CDD82E2A2F251700493FF2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96CDD82D2A2F251700493FF2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		96CDD8312A2F252700493FF2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96CDD8302A2F252700493FF2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		96CDD8342A2F258300493FF2 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96CDD8332A2F258300493FF2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		96CDD8112A2F0B9A00493FF2 /* DeezerAPI_App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				96CDD8122A2F0B9A00493FF2 /* DeezerAPI_App.xcdatamodel */,
+			);
+			currentVersion = 96CDD8122A2F0B9A00493FF2 /* DeezerAPI_App.xcdatamodel */;
+			path = DeezerAPI_App.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 96CDD7FD2A2F0B9900493FF2 /* Project object */;
+}
