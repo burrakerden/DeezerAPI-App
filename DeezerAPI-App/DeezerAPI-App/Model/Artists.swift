@@ -1,24 +1,26 @@
 //
-//  Genre.swift
+//  Artists.swift
 //  DeezerAPI-App
 //
-//  Created by Burak Erden on 6.06.2023.
+//  Created by Burak Erden on 7.06.2023.
 //
 
 import Foundation
 
-// MARK: - Genre
-struct Genre: Codable {
-    let data: [GenreResult]?
+// MARK: - Artists
+struct Artists: Codable {
+    let data: [ArtistsResult]?
 }
 
-// MARK: - Result
-struct GenreResult: Codable {
+// MARK: - ArtistsResult
+struct ArtistsResult: Codable {
     let id: Int?
     let name: String?
     let picture: String?
     let pictureSmall, pictureMedium, pictureBig, pictureXl: String?
-    let type: TypeEnum?
+    let radio: Bool?
+    let tracklist: String?
+    let type: TypeEnumm?
 
     enum CodingKeys: String, CodingKey {
         case id, name, picture
@@ -26,10 +28,10 @@ struct GenreResult: Codable {
         case pictureMedium = "picture_medium"
         case pictureBig = "picture_big"
         case pictureXl = "picture_xl"
-        case type
+        case radio, tracklist, type
     }
 }
 
-enum TypeEnum: String, Codable {
-    case genre = "genre"
+enum TypeEnumm: String, Codable {
+    case artist = "artist"
 }

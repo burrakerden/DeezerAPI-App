@@ -1,34 +1,39 @@
 //
-//  CategoryCell.swift
+//  ArtistDetailCell.swift
 //  DeezerAPI-App
 //
-//  Created by Burak Erden on 6.06.2023.
+//  Created by Burak Erden on 7.06.2023.
 //
 
 import UIKit
 import SnapKit
 import Kingfisher
 
-class CategoryCell: UICollectionViewCell {
+class ArtistDetailCell: UICollectionViewCell {
     
     //MARK: - Properties
     
-    var viewModel: GenreViewModel? {
+    var viewModel: AlbumDetailViewModel? {
         didSet { configure() }
     }
 
-    private let genreImageView: UIImageView = {
+    private let artistsImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
-        iv.layer.cornerRadius = 20
+        iv.layer.cornerRadius = 44
         iv.clipsToBounds = true
+        iv.layer.borderWidth = 0.8
+        iv.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
         return iv
     }()
     
     private let nameLabel: UILabel = {
         var label = UILabel()
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
     }()
     
@@ -37,9 +42,9 @@ class CategoryCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        addSubview(genreImageView)
-        genreImageView.snp.makeConstraints { make in
+                
+        addSubview(artistsImageView)
+        artistsImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(self)
             make.bottom.equalTo(self).inset(24)
         }
@@ -47,7 +52,8 @@ class CategoryCell: UICollectionViewCell {
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(self)
-            make.bottom.equalTo(self)
+            make.bottom.equalTo(self).inset(4)
+            make.leading.trailing.equalTo(self)
         }
     }
     
@@ -63,7 +69,7 @@ class CategoryCell: UICollectionViewCell {
     func configure() {
         backgroundColor = .black
         nameLabel.text = viewModel?.name
-        genreImageView.kf.setImage(with: viewModel?.imageUrl)
+        artistsImageView.kf.setImage(with: viewModel?.imageUrl)
     }
 
 }

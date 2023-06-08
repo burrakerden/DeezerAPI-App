@@ -9,14 +9,16 @@ import Foundation
 
 struct GenreViewModel {
     
-    var result: Result
+    var result: GenreResult
+    
+    var id: Int { return result.id ?? 0}
     
     var name: String { return result.name ?? "invalid name" }
     
     var imageUrl: URL? { return URL(string: result.pictureXl ?? "") }
 
     
-    init(result: Result) {
+    init(result: GenreResult) {
         self.result = result
     }
 }

@@ -14,15 +14,27 @@
 		96CDD8182A2F0B9B00493FF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CDD8162A2F0B9B00493FF2 /* LaunchScreen.storyboard */; };
 		96CDD8202A2F0C1100493FF2 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD81F2A2F0C1100493FF2 /* MainTabController.swift */; };
 		96CDD8222A2F0D0D00493FF2 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8212A2F0D0D00493FF2 /* CategoriesController.swift */; };
-		96CDD8242A2F0E1700493FF2 /* ArtistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8232A2F0E1700493FF2 /* ArtistController.swift */; };
+		96CDD8242A2F0E1700493FF2 /* ArtistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8232A2F0E1700493FF2 /* ArtistsController.swift */; };
 		96CDD82C2A2F231800493FF2 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD82B2A2F231800493FF2 /* Genre.swift */; };
 		96CDD82F2A2F251700493FF2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 96CDD82E2A2F251700493FF2 /* Alamofire */; };
 		96CDD8322A2F252700493FF2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 96CDD8312A2F252700493FF2 /* Kingfisher */; };
 		96CDD8352A2F258300493FF2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 96CDD8342A2F258300493FF2 /* SnapKit */; };
-		96CDD8372A2F29AA00493FF2 /* GenreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8362A2F29AA00493FF2 /* GenreService.swift */; };
+		96CDD8372A2F29AA00493FF2 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8362A2F29AA00493FF2 /* Services.swift */; };
 		96CDD8392A2F360F00493FF2 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8382A2F360F00493FF2 /* ServiceManager.swift */; };
 		96CDD83B2A2F3FFD00493FF2 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD83A2A2F3FFD00493FF2 /* CategoryCell.swift */; };
 		96CDD83D2A2F51DA00493FF2 /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD83C2A2F51DA00493FF2 /* GenreViewModel.swift */; };
+		96CDD8412A3060E900493FF2 /* LikesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8402A3060E900493FF2 /* LikesController.swift */; };
+		96CDD8432A30644B00493FF2 /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8422A30644B00493FF2 /* ArtistsViewModel.swift */; };
+		96CDD8452A30658400493FF2 /* Artists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8442A30658400493FF2 /* Artists.swift */; };
+		96CDD8472A306BAF00493FF2 /* ArtistsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8462A306BAF00493FF2 /* ArtistsCell.swift */; };
+		96CDD8492A30724800493FF2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8482A30724800493FF2 /* Extensions.swift */; };
+		96CDD84C2A30732D00493FF2 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 96CDD84B2A30732D00493FF2 /* JGProgressHUD */; };
+		96CDD84E2A3088BC00493FF2 /* ArtistDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD84D2A3088BC00493FF2 /* ArtistDetailController.swift */; };
+		96CDD8502A308A2A00493FF2 /* ArtistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD84F2A308A2A00493FF2 /* ArtistDetail.swift */; };
+		96CDD8522A308D0E00493FF2 /* ArtistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8512A308D0E00493FF2 /* ArtistDetailViewModel.swift */; };
+		96CDD8542A308D5C00493FF2 /* ArtistDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8532A308D5C00493FF2 /* ArtistDetailCell.swift */; };
+		96CDD8562A309A4800493FF2 /* AlbumDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8552A309A4800493FF2 /* AlbumDetail.swift */; };
+		96CDD8582A309C8C00493FF2 /* AlbumDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD8572A309C8C00493FF2 /* AlbumDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,12 +47,23 @@
 		96CDD8192A2F0B9B00493FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96CDD81F2A2F0C1100493FF2 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		96CDD8212A2F0D0D00493FF2 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
-		96CDD8232A2F0E1700493FF2 /* ArtistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistController.swift; sourceTree = "<group>"; };
+		96CDD8232A2F0E1700493FF2 /* ArtistsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsController.swift; sourceTree = "<group>"; };
 		96CDD82B2A2F231800493FF2 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
-		96CDD8362A2F29AA00493FF2 /* GenreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreService.swift; sourceTree = "<group>"; };
+		96CDD8362A2F29AA00493FF2 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		96CDD8382A2F360F00493FF2 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		96CDD83A2A2F3FFD00493FF2 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		96CDD83C2A2F51DA00493FF2 /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
+		96CDD8402A3060E900493FF2 /* LikesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesController.swift; sourceTree = "<group>"; };
+		96CDD8422A30644B00493FF2 /* ArtistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewModel.swift; sourceTree = "<group>"; };
+		96CDD8442A30658400493FF2 /* Artists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artists.swift; sourceTree = "<group>"; };
+		96CDD8462A306BAF00493FF2 /* ArtistsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsCell.swift; sourceTree = "<group>"; };
+		96CDD8482A30724800493FF2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		96CDD84D2A3088BC00493FF2 /* ArtistDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailController.swift; sourceTree = "<group>"; };
+		96CDD84F2A308A2A00493FF2 /* ArtistDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetail.swift; sourceTree = "<group>"; };
+		96CDD8512A308D0E00493FF2 /* ArtistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewModel.swift; sourceTree = "<group>"; };
+		96CDD8532A308D5C00493FF2 /* ArtistDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailCell.swift; sourceTree = "<group>"; };
+		96CDD8552A309A4800493FF2 /* AlbumDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetail.swift; sourceTree = "<group>"; };
+		96CDD8572A309C8C00493FF2 /* AlbumDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96CDD84C2A30732D00493FF2 /* JGProgressHUD in Frameworks */,
 				96CDD8352A2F258300493FF2 /* SnapKit in Frameworks */,
 				96CDD8322A2F252700493FF2 /* Kingfisher in Frameworks */,
 				96CDD82F2A2F251700493FF2 /* Alamofire in Frameworks */,
@@ -97,7 +121,9 @@
 			children = (
 				96CDD81F2A2F0C1100493FF2 /* MainTabController.swift */,
 				96CDD8212A2F0D0D00493FF2 /* CategoriesController.swift */,
-				96CDD8232A2F0E1700493FF2 /* ArtistController.swift */,
+				96CDD8232A2F0E1700493FF2 /* ArtistsController.swift */,
+				96CDD84D2A3088BC00493FF2 /* ArtistDetailController.swift */,
+				96CDD8402A3060E900493FF2 /* LikesController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -106,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				96CDD83A2A2F3FFD00493FF2 /* CategoryCell.swift */,
+				96CDD8462A306BAF00493FF2 /* ArtistsCell.swift */,
+				96CDD8532A308D5C00493FF2 /* ArtistDetailCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				96CDD82B2A2F231800493FF2 /* Genre.swift */,
+				96CDD8442A30658400493FF2 /* Artists.swift */,
+				96CDD84F2A308A2A00493FF2 /* ArtistDetail.swift */,
+				96CDD8552A309A4800493FF2 /* AlbumDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				96CDD83C2A2F51DA00493FF2 /* GenreViewModel.swift */,
+				96CDD8422A30644B00493FF2 /* ArtistsViewModel.swift */,
+				96CDD8512A308D0E00493FF2 /* ArtistDetailViewModel.swift */,
+				96CDD8572A309C8C00493FF2 /* AlbumDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -130,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				96CDD8382A2F360F00493FF2 /* ServiceManager.swift */,
-				96CDD8362A2F29AA00493FF2 /* GenreService.swift */,
+				96CDD8362A2F29AA00493FF2 /* Services.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -138,6 +172,7 @@
 		96CDD82A2A2F228300493FF2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				96CDD8482A30724800493FF2 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -162,6 +197,7 @@
 				96CDD82E2A2F251700493FF2 /* Alamofire */,
 				96CDD8312A2F252700493FF2 /* Kingfisher */,
 				96CDD8342A2F258300493FF2 /* SnapKit */,
+				96CDD84B2A30732D00493FF2 /* JGProgressHUD */,
 			);
 			productName = "DeezerAPI-App";
 			productReference = 96CDD8052A2F0B9A00493FF2 /* DeezerAPI-App.app */;
@@ -195,6 +231,7 @@
 				96CDD82D2A2F251700493FF2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				96CDD8302A2F252700493FF2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				96CDD8332A2F258300493FF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				96CDD84A2A30732D00493FF2 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = 96CDD8062A2F0B9A00493FF2 /* Products */;
 			projectDirPath = "";
@@ -224,14 +261,25 @@
 			files = (
 				96CDD8092A2F0B9A00493FF2 /* AppDelegate.swift in Sources */,
 				96CDD8202A2F0C1100493FF2 /* MainTabController.swift in Sources */,
-				96CDD8242A2F0E1700493FF2 /* ArtistController.swift in Sources */,
+				96CDD8452A30658400493FF2 /* Artists.swift in Sources */,
+				96CDD8242A2F0E1700493FF2 /* ArtistsController.swift in Sources */,
 				96CDD8222A2F0D0D00493FF2 /* CategoriesController.swift in Sources */,
+				96CDD8562A309A4800493FF2 /* AlbumDetail.swift in Sources */,
+				96CDD8522A308D0E00493FF2 /* ArtistDetailViewModel.swift in Sources */,
+				96CDD84E2A3088BC00493FF2 /* ArtistDetailController.swift in Sources */,
+				96CDD8412A3060E900493FF2 /* LikesController.swift in Sources */,
+				96CDD8582A309C8C00493FF2 /* AlbumDetailViewModel.swift in Sources */,
+				96CDD8432A30644B00493FF2 /* ArtistsViewModel.swift in Sources */,
 				96CDD80B2A2F0B9A00493FF2 /* SceneDelegate.swift in Sources */,
 				96CDD83D2A2F51DA00493FF2 /* GenreViewModel.swift in Sources */,
+				96CDD8542A308D5C00493FF2 /* ArtistDetailCell.swift in Sources */,
 				96CDD8392A2F360F00493FF2 /* ServiceManager.swift in Sources */,
 				96CDD8132A2F0B9A00493FF2 /* DeezerAPI_App.xcdatamodeld in Sources */,
+				96CDD8492A30724800493FF2 /* Extensions.swift in Sources */,
+				96CDD8502A308A2A00493FF2 /* ArtistDetail.swift in Sources */,
 				96CDD82C2A2F231800493FF2 /* Genre.swift in Sources */,
-				96CDD8372A2F29AA00493FF2 /* GenreService.swift in Sources */,
+				96CDD8372A2F29AA00493FF2 /* Services.swift in Sources */,
+				96CDD8472A306BAF00493FF2 /* ArtistsCell.swift in Sources */,
 				96CDD83B2A2F3FFD00493FF2 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +514,14 @@
 				kind = branch;
 			};
 		};
+		96CDD84A2A30732D00493FF2 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -483,6 +539,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 96CDD8332A2F258300493FF2 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		96CDD84B2A30732D00493FF2 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96CDD84A2A30732D00493FF2 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 
