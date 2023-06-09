@@ -11,7 +11,6 @@ struct ArtistDetailViewModel {
     
     var result: ArtistDetailResult
     
-    
     var name: String { return result.name ?? "invalid name" }
     
     var imageUrl: URL? { return URL(string: result.pictureBig ?? "") }

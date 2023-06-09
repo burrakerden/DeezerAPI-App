@@ -15,7 +15,7 @@ import Foundation
 import Foundation
 
 // MARK: - Welcome
-struct AlbumDetail: Codable {
+struct AlbumsDetail: Codable {
     let data: [AlbumDetailResult]?
     let total: Int?
 }

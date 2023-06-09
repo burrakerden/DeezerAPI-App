@@ -8,12 +8,19 @@
 import Foundation
 import UIKit
 
+let headerdentifier = "header"
+
+typealias MutipleValue = (image: String, id: Int)
+
 class ArtistDetailController: UICollectionViewController {
    
     //MARK: - Properties
+        
+    let name: String?
+    let Image: String?
     
-    var artistName: String?
-    
+    var dic = [String: MutipleValue]()
+
     var album: [AlbumDetailResult] {
         didSet { collectionView.reloadData() }
     }
@@ -24,10 +31,13 @@ class ArtistDetailController: UICollectionViewController {
     override func viewDidLoad() {
         configureUI()
         configureNavigation()
+        organiseData()
     }
-
-    init(artistName: String? = nil, album: [AlbumDetailResult]) {
-        self.artistName = artistName
+    
+    init(name: String?, Image: String?, dic: [String : MutipleValue] = [String: MutipleValue](), album: [AlbumDetailResult]) {
+        self.name = name
+        self.Image = Image
+        self.dic = dic
         self.album = album
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -36,29 +46,32 @@ class ArtistDetailController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+   
+    //MARK: - organise
     
-    //MARK: - Fetch Data
-    
-    
-    
-    //MARK: - Actions
-    
-    
+    func organiseData() {
+        album.forEach { data in
+            if !dic.contains(where: { $0.key == data.album?.title }) {
+                guard let albumImage = data.album?.coverBig, let id = data.album?.id else {return}
+                dic[data.album?.title ?? ""] = MutipleValue(image: albumImage, id: id)
+            }
+        }
+    }
     
     //MARK: - Helpers
     
     func configureUI() {
         collectionView.register(ArtistDetailCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(ArtistHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerdentifier)
         collectionView.backgroundColor = .black
     }
     
     func configureNavigation()  {
-        self.navigationItem.title = artistName
+        self.navigationItem.title = name
         self.navigationController?.navigationBar.barTintColor = .black
         self.navigationController?.navigationBar.backgroundColor = .black
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 17)]
         self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
-
     }
 }
 
@@ -67,23 +80,31 @@ class ArtistDetailController: UICollectionViewController {
 extension ArtistDetailController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(album.count)
-        return album.count
-        
+        return dic.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ArtistDetailCell
-        guard let result = album[indexPath.row].album else {return UICollectionViewCell()}
-        print(result)
-        cell.viewModel = AlbumDetailViewModel(result: result)
+        var dicToCell = [String: MutipleValue]()
+        let titles = Array(dic.keys)[indexPath.row]
+        let values = dic[titles]
+        guard let values else {return UICollectionViewCell()}
+        dicToCell[titles] = MutipleValue(image: values.image, id: values.id)
+        cell.viewModel = AlbumsDetailViewModel(dic: dicToCell)
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let titles = Array(dic.keys)[indexPath.row]
+        let id = dic[titles]?.id
     }
     
+    //MARK: - Header
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerdentifier, for: indexPath) as! ArtistHeader
+        header.viewModel = ArtistHeaderViewModel(name: name ?? "", image: Image ?? "")
+        return header
+    }
 }
 
 //MARK: - UICollectionView Delegate FlowLayout  -- where we define size of cell
@@ -91,12 +112,16 @@ extension ArtistDetailController {
 extension ArtistDetailController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (view.frame.width / 3) - 30
-        return CGSize(width: width, height: width + 24)
+        let width = (view.frame.width) - 30
+        return CGSize(width: width, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 12, left: 12, bottom: 0, right: 12)
+        return UIEdgeInsets(top: 24, left: 12, bottom: 0, right: 12)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 360)
     }
 
     

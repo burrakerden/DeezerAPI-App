@@ -8,9 +8,8 @@
 import UIKit
 
 
-
 class ArtistsController: UICollectionViewController {
-   
+    
     //MARK: - Properties
     
     var categoryName: String?
@@ -19,14 +18,13 @@ class ArtistsController: UICollectionViewController {
         didSet { collectionView.reloadData() }
     }
     
-    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         configureUI()
         configureNavigation()
     }
-
+    
     init(categoryName: String? = nil, artists: [ArtistsResult]) {
         self.categoryName = categoryName
         self.artists = artists
@@ -59,7 +57,7 @@ class ArtistsController: UICollectionViewController {
         self.navigationController?.navigationBar.backgroundColor = .black
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 17)]
         self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
-
+        
     }
 }
 
@@ -82,16 +80,13 @@ extension ArtistsController {
         guard let id = artists[indexPath.row].id else {return}
         AlbumService().getAlbum(id: id) { albumDetail in
             guard let data = albumDetail?.data else {return}
-            let vc = ArtistDetailController(artistName: self.artists[indexPath.row].name, album: data)
+            let vc = ArtistDetailController(name: self.artists[indexPath.row].name, Image: self.artists[indexPath.row].pictureBig, album: data)
             self.navigationController?.pushViewController(vc, animated: true)
         } onError: { err in
             print(err.localizedDescription)
         }
-
-
-
     }
-    
+
 }
 
 //MARK: - UICollectionView Delegate FlowLayout  -- where we define size of cell
@@ -106,6 +101,8 @@ extension ArtistsController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 12, left: 12, bottom: 0, right: 12)
     }
+    
 
+    
     
 }

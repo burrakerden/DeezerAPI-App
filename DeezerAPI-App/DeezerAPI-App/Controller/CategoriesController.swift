@@ -19,7 +19,6 @@ class CategoriesController: UICollectionViewController {
         }
     }
     
-    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -27,8 +26,6 @@ class CategoriesController: UICollectionViewController {
         configureNavigation()
         fetchGenre()
     }
-    
-    
     
     //MARK: - Fetch Data
     
@@ -40,12 +37,6 @@ class CategoriesController: UICollectionViewController {
             print(err.localizedDescription)
         }
     }
-    
-    
-    
-    //MARK: - Actions
-    
-    
     
     //MARK: - Helpers
     
@@ -85,8 +76,7 @@ extension CategoriesController {
         showLoader(true)
         ArtistsService().getArtists(id: id) { artistsData in
             guard let data = artistsData?.data else {return}
-            let vc = ArtistsController(artists: data)
-            vc.categoryName = self.result?[indexPath.row].name
+            let vc = ArtistsController(categoryName: self.result?[indexPath.row].name, artists: data)
             self.showLoader(false)
             self.navigationController?.pushViewController(vc, animated: true)
         } onError: { err in

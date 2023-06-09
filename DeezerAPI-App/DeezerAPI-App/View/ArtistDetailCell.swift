@@ -13,14 +13,14 @@ class ArtistDetailCell: UICollectionViewCell {
     
     //MARK: - Properties
     
-    var viewModel: AlbumDetailViewModel? {
+    var viewModel: AlbumsDetailViewModel? {
         didSet { configure() }
     }
 
-    private let artistsImageView: UIImageView = {
+    private let albumImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
-        iv.layer.cornerRadius = 44
+        iv.layer.cornerRadius = 8
         iv.clipsToBounds = true
         iv.layer.borderWidth = 0.8
         iv.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
@@ -31,9 +31,9 @@ class ArtistDetailCell: UICollectionViewCell {
         var label = UILabel()
         label.textColor = .white
         label.numberOfLines = 1
-        label.textAlignment = .center
+        label.minimumScaleFactor = 0.7
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
     
@@ -43,17 +43,17 @@ class ArtistDetailCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
                 
-        addSubview(artistsImageView)
-        artistsImageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(self)
-            make.bottom.equalTo(self).inset(24)
+        addSubview(albumImageView)
+        albumImageView.snp.makeConstraints { make in
+            make.leading.top.bottom.equalTo(self)
+            make.trailing.equalTo(self).inset(280)
         }
         
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(self)
-            make.bottom.equalTo(self).inset(4)
-            make.leading.trailing.equalTo(self)
+            make.centerY.equalTo(self)
+            make.leading.equalTo(albumImageView.snp.trailing).offset(20)
+            make.trailing.equalTo(self).inset(4)
         }
     }
     
@@ -68,8 +68,8 @@ class ArtistDetailCell: UICollectionViewCell {
     
     func configure() {
         backgroundColor = .black
-        nameLabel.text = viewModel?.name
-        artistsImageView.kf.setImage(with: viewModel?.imageUrl)
+        nameLabel.text = viewModel?.albumName
+        albumImageView.kf.setImage(with: URL(string: viewModel?.imageUrl ?? ""))
     }
 
 }

@@ -23,4 +23,22 @@ extension UIViewController {
             UIViewController.hud.dismiss()
         }
     }
+    
+    func removeDuplicateElements(arr: [String]) -> [String] {
+       var uniqueElements: [String] = []
+       for x in arr {
+          if !uniqueElements.contains(x) {
+             uniqueElements.append(x)
+          }
+       }
+       return uniqueElements
+    }
+}
+
+
+extension Sequence where Element: Hashable {
+    func uniqued() -> [Element] {
+        var set = Set<Element>()
+        return filter { set.insert($0).inserted }
+    }
 }
