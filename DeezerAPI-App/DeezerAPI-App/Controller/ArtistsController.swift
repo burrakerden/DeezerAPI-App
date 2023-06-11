@@ -78,9 +78,11 @@ extension ArtistsController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let id = artists[indexPath.row].id else {return}
-        AlbumService().getAlbum(id: id) { albumDetail in
-            guard let data = albumDetail?.data else {return}
-            let vc = ArtistDetailController(name: self.artists[indexPath.row].name, Image: self.artists[indexPath.row].pictureBig, album: data)
+        showLoader(true)
+        AlbumsService().getAlbum(id: id) { albumsDetail in
+            guard let data = albumsDetail?.data else {return}
+            let vc = ArtistDetailController(name: self.artists[indexPath.row].name, Image: self.artists[indexPath.row].pictureBig, albums: data)
+            self.showLoader(false)
             self.navigationController?.pushViewController(vc, animated: true)
         } onError: { err in
             print(err.localizedDescription)

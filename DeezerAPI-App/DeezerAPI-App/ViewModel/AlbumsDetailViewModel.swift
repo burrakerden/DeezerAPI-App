@@ -9,13 +9,12 @@ import Foundation
 
 struct AlbumsDetailViewModel {
     
-    var dic: [String: MutipleValue]
-
-    var albumName: String { return dic.first?.key ?? ""}
+    let result: AlbumsDetailResult
     
-    var imageUrl: String { return dic[albumName]?.image ?? ""}
-
-    init(dic: [String : MutipleValue]) {
-        self.dic = dic
-    }
+    var albumName: String { return result.title ?? "invalid name" }
+    
+    var imageUrl: URL? { return URL(string: result.coverBig ?? "") }
+    
+    var date: String { return result.releaseDate?.chanceDate() ?? ""}
+    
 }

@@ -20,6 +20,7 @@ class ArtistHeader: UICollectionReusableView {
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
+        iv.layer.cornerRadius = 4
         iv.clipsToBounds = true
         return iv
     }()
@@ -33,7 +34,7 @@ class ArtistHeader: UICollectionReusableView {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont(name: "BradleyHandITCTT-Bold", size: 20)
+        label.font = UIFont(name: "MarkerFelt-Wide", size: 20)
         return label
     }()
     
@@ -65,9 +66,6 @@ class ArtistHeader: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Actions
-
-
     //MARK: - Helpers
     
     func configure() {

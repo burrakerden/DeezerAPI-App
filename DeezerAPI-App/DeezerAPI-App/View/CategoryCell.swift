@@ -20,7 +20,9 @@ class CategoryCell: UICollectionViewCell {
     private let genreImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
-        iv.layer.cornerRadius = 20
+        iv.layer.cornerRadius = 16
+        iv.layer.borderWidth = 0.4
+        iv.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
         iv.clipsToBounds = true
         return iv
     }()

@@ -16,22 +16,14 @@ struct Artists: Codable {
 struct ArtistsResult: Codable {
     let id: Int?
     let name: String?
-    let picture: String?
-    let pictureSmall, pictureMedium, pictureBig, pictureXl: String?
-    let radio: Bool?
-    let tracklist: String?
-    let type: TypeEnumm?
+    let pictureMedium: String?
+    let pictureBig: String
 
     enum CodingKeys: String, CodingKey {
-        case id, name, picture
-        case pictureSmall = "picture_small"
+        case id, name
         case pictureMedium = "picture_medium"
         case pictureBig = "picture_big"
-        case pictureXl = "picture_xl"
-        case radio, tracklist, type
     }
 }
 
-enum TypeEnumm: String, Codable {
-    case artist = "artist"
-}
+

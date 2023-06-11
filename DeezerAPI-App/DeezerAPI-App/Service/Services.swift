@@ -21,8 +21,12 @@ protocol ArtistDetailProtocol {
     func getArtistDetail(id: Int, onSuccess: @escaping (ArtistDetailResult?) -> Void, onError: @escaping (AFError) -> Void)
 }
 
-protocol AlbumProtocol {
+protocol AlbumsProtocol {
     func getAlbum(id: Int, onSuccess: @escaping (AlbumsDetail?) -> Void, onError: @escaping (AFError) -> Void)
+}
+
+protocol AlbumProtocol {
+    func getAlbum(id: Int, onSuccess: @escaping (AlbumDetail?) -> Void, onError: @escaping (AFError) -> Void)
 }
 
 //MARK: - Service Class
@@ -57,9 +61,19 @@ final class ArtistDetailService: ArtistDetailProtocol {
     }
 }
 
-final class AlbumService: AlbumProtocol {
+final class AlbumsService: AlbumsProtocol {
     func getAlbum(id: Int, onSuccess: @escaping (AlbumsDetail?) -> Void, onError: @escaping (Alamofire.AFError) -> Void) {
-        ServiceManager.shared.fetch(path: "https://api.deezer.com/artist/\(id)/top?limit=50") { (response: AlbumsDetail) in
+        ServiceManager.shared.fetch(path: "https://api.deezer.com/artist/\(id)/albums") { (response: AlbumsDetail) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+}
+
+final class AlbumService: AlbumProtocol {
+    func getAlbum(id: Int, onSuccess: @escaping (AlbumDetail?) -> Void, onError: @escaping (Alamofire.AFError) -> Void) {
+        ServiceManager.shared.fetch(path: "https://api.deezer.com/album/\(id)") { (response: AlbumDetail) in
             onSuccess(response)
         } onError: { (error) in
             onError(error)
