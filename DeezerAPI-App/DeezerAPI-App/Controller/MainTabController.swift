@@ -37,7 +37,7 @@ class MainTabController: UITabBarController {
     func configVC() {
         let layout = UICollectionViewFlowLayout()
         let vc1 = UINavigationController(rootViewController: CategoriesController(collectionViewLayout: layout))
-        let vc2 = UINavigationController(rootViewController: LikesController())
+        let vc2 = UINavigationController(rootViewController: LikesController(collectionViewLayout: layout))
 
         vc1.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "music.note.house"), selectedImage: UIImage(systemName: "music.note.house.fill"))
         vc2.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart.rectangle"), selectedImage: UIImage(systemName: "heart.rectangle.fill"))

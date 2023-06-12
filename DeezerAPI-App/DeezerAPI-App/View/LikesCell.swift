@@ -1,20 +1,15 @@
 //
-//  AlbumDetailCell.swift
+//  LikesCell.swift
 //  DeezerAPI-App
 //
-//  Created by Burak Erden on 9.06.2023.
+//  Created by Burak Erden on 12.06.2023.
 //
 
 import Foundation
 import UIKit
 import Kingfisher
 
-
-//protocol FeedCellDelegate: AnyObject {
-//    func cell(didLike post: Post)
-//}
-
-class AlbumDetailCell: UICollectionViewCell {
+class LikesCell: UICollectionViewCell {
     
     var viewModel: AlbumDetailViewModel? {
         didSet { configure() }
