@@ -11,43 +11,65 @@ import UIKit
 
 
 class AlbumDetailController: UICollectionViewController {
-
+    
     //MARK: - Properties
-
+    
     let albumName: String?
     var albumImage: String?
-
-
+        
+    // Reference to managed object content
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    // Data for the table
+    var items = [SongData]()
+    var namesTest = [String]()
+    
     var album: [TracksResult] {
         didSet { collectionView.reloadData() }
     }
-
-
+    
+    
     //MARK: - Life Cycle
-
+    
     override func viewDidLoad() {
         configureUI()
         configureNavigation()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchSongs()
+    }
+    
     init(albumName: String?, albumImage: String?, album: [TracksResult]) {
         self.albumName = albumName
         self.albumImage = albumImage
         self.album = album
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    
+    //MARK: - Fetch core data
+    
+    func fetchSongs() {
+        CoreDataService.fetchCoreData(collectionView: collectionView) { songData in
+            songData?.forEach { songNames in
+                guard let song = songNames.songName else {return}
+                self.namesTest.append(song)
+            }
+        }
+    }
+    
     //MARK: - Helpers
-
+    
     func configureUI() {
         collectionView.register(AlbumDetailCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.backgroundColor = .black
     }
-
+    
     func configureNavigation()  {
         self.navigationItem.title = albumName
         self.navigationController?.navigationBar.barTintColor = .black
@@ -60,51 +82,47 @@ class AlbumDetailController: UICollectionViewController {
 //MARK: - UICollectionView DataSource
 
 extension AlbumDetailController {
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return album.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! AlbumDetailCell
-        cell.viewModel = AlbumDetailViewModel(tracksResult: album[indexPath.row], image: self.albumImage)
+        cell.viewModel = AlbumDetailViewModel(tracksResult: album[indexPath.row], songNames: self.namesTest, image: self.albumImage)
+        cell.delegate = self
         return cell
     }
-
+    
 }
 
 //MARK: - UICollectionView Delegate FlowLayout  -- where we define size of cell
 
 extension AlbumDetailController: UICollectionViewDelegateFlowLayout {
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (view.frame.width) - 12
         return CGSize(width: width, height: 80)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 24, left: 6, bottom: 0, right: 6)
     }
 }
 
-extension AlbumDetailController {
-//    func cell(_ cell: FeedCell, didLike post: Post) {
-//        cell.viewModel?.post.didLike.toggle()
-//        guard let tab = self.tabBarController as? MainTabController else {return}
-//        guard let user = tab.user else {return}
-//
-//        if post.didLike {
-//            PostService.unlikePost(post: post) { _ in
-//                cell.likeButton.setImage(UIImage(named: "like_unselected"), for: .normal)
-//                cell.likeButton.tintColor = .black
-//                cell.viewModel?.post.likes = post.likes - 1
-//            }
-//        } else {
-//            PostService.likePost(post: post) { _ in
-//                cell.likeButton.setImage(UIImage(named: "like_selected"), for: .normal)
-//                cell.likeButton.tintColor = .systemRed
-//                cell.viewModel?.post.likes = post.likes + 1
-//                NotificationService.uploadNotification(toUid: post.ownerUid, type: .like, forUser: user, post: post)
-//            }
-//        }
+extension AlbumDetailController: FeedCellDelegate {
+    func cell(didLike song: AlbumDetailViewModel) {
+        
+        if !song.boolTest {
+            CoreDataService.addCoreData(songName: song.songName, songImage: song.image ?? "", songDuration: song.duration, songPreview: song.preview)
+            fetchSongs()
+            
+        } else {
+            
+            
+
+        }
+        
     }
+
+}

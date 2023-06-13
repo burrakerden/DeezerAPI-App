@@ -67,9 +67,11 @@ class ArtistsCell: UICollectionViewCell {
     //MARK: - Helpers
     
     func configure() {
+        guard let viewModel = viewModel else {return}
         backgroundColor = .black
-        nameLabel.text = viewModel?.name
-        artistsImageView.kf.setImage(with: viewModel?.imageUrl)
+        
+        nameLabel.text = viewModel.name
+        artistsImageView.kf.setImage(with: viewModel.imageUrl)
     }
 
 }

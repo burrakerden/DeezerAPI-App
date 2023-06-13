@@ -78,18 +78,17 @@ class ArtistDetailCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Actions
-    
-    
     //MARK: - Helpers
     
     func configure() {
+        guard let viewModel = viewModel else {return}
         backgroundColor = .white.withAlphaComponent(0.05)
         layer.cornerRadius = 6
         layer.masksToBounds = true
-        nameLabel.text = viewModel?.albumName
-        albumImageView.kf.setImage(with: viewModel?.imageUrl)
-        dateLabel.text = viewModel?.date
+        
+        nameLabel.text = viewModel.albumName
+        albumImageView.kf.setImage(with: viewModel.imageUrl)
+        dateLabel.text = viewModel.date
     }
     
 }

@@ -10,11 +10,15 @@ import UIKit
 import Kingfisher
 
 
-//protocol FeedCellDelegate: AnyObject {
-//    func cell(didLike post: Post)
-//}
+protocol FeedCellDelegate: AnyObject {
+    func cell(didLike song: AlbumDetailViewModel)
+}
 
 class AlbumDetailCell: UICollectionViewCell {
+    
+    //MARK: - Properties
+    
+    weak var delegate: FeedCellDelegate?
     
     var viewModel: AlbumDetailViewModel? {
         didSet { configure() }
@@ -51,10 +55,9 @@ class AlbumDetailCell: UICollectionViewCell {
     
     lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        button.isEnabled = true
         button.tintColor = .red
-
-//        button.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
         return button
     }()
     
@@ -96,17 +99,28 @@ class AlbumDetailCell: UICollectionViewCell {
     }
     
     //MARK: - Actions
+    
+    @objc func didTapLike() {
+//        viewModel?.boolTest.toggle()
+        guard let viewModel else {return}
+        delegate?.cell(didLike: viewModel)
+        
+    }
 
 
     
     //MARK: - Helpers
     
     func configure() {
+        guard let viewModel else {return}
         backgroundColor = .white.withAlphaComponent(0.05)
         layer.cornerRadius = 6
-        nameLabel.text = viewModel?.songName
-        albumImageView.kf.setImage(with: URL(string: viewModel?.image ?? ""))
-        durationLabel.text = viewModel?.duration.timeString()
+        likeButton.setImage(UIImage(systemName: viewModel.buttonImage), for: .normal)
+        
+        nameLabel.text = viewModel.songName
+        albumImageView.kf.setImage(with: URL(string: viewModel.image ?? ""))
+        durationLabel.text = viewModel.duration.timeString()
+        
     }
 
 }

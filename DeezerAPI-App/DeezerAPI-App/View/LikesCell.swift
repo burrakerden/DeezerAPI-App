@@ -9,9 +9,19 @@ import Foundation
 import UIKit
 import Kingfisher
 
+protocol LikeCellDelegate: AnyObject {
+    func cell(indexPath: Int)
+}
+
 class LikesCell: UICollectionViewCell {
     
-    var viewModel: AlbumDetailViewModel? {
+    //MARK: - Properties
+    
+    weak var delegate: LikeCellDelegate?
+    
+    var index: IndexPath?
+    
+    var viewModel: LikesViewModel? {
         didSet { configure() }
     }
 
@@ -48,8 +58,7 @@ class LikesCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         button.tintColor = .red
-
-//        button.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
         return button
     }()
     
@@ -92,16 +101,21 @@ class LikesCell: UICollectionViewCell {
     
     //MARK: - Actions
 
+    @objc func didTapLike() {
+        delegate?.cell(indexPath: index!.row)
+    }
 
     
     //MARK: - Helpers
     
     func configure() {
+        guard let viewModel = viewModel else {return}
         backgroundColor = .white.withAlphaComponent(0.05)
         layer.cornerRadius = 6
-        nameLabel.text = viewModel?.songName
-        albumImageView.kf.setImage(with: URL(string: viewModel?.image ?? ""))
-        durationLabel.text = viewModel?.duration.timeString()
+        
+        nameLabel.text = viewModel.songName
+        albumImageView.kf.setImage(with: URL(string: viewModel.songImage ))
+        durationLabel.text = Int(viewModel.songDuration).timeString()
     }
 
 }
