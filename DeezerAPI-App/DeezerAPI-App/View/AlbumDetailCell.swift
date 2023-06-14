@@ -101,14 +101,10 @@ class AlbumDetailCell: UICollectionViewCell {
     //MARK: - Actions
     
     @objc func didTapLike() {
-//        viewModel?.boolTest.toggle()
         guard let viewModel else {return}
         delegate?.cell(didLike: viewModel)
-        
     }
 
-
-    
     //MARK: - Helpers
     
     func configure() {

@@ -61,9 +61,6 @@ class ArtistsCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Actions
-
-    
     //MARK: - Helpers
     
     func configure() {

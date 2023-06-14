@@ -25,6 +25,6 @@ struct AlbumDetailViewModel {
     
     var buttonImage: String { boolTest ? "heart.fill" : "heart"}
     
-    var boolTest: Bool { return songNames.contains(songName) ? true : false}
+    var boolTest: Bool { return songNames.contains(songName)}
     
 }

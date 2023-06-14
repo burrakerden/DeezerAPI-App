@@ -62,6 +62,15 @@ class LikesCell: UICollectionViewCell {
         return button
     }()
     
+    let speakerImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(systemName: "speaker.wave.2")
+        iv.contentMode = .scaleToFill
+        iv.layer.cornerRadius = 6
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
     
     //MARK: - Life Cycle
     
@@ -93,6 +102,13 @@ class LikesCell: UICollectionViewCell {
             make.centerY.equalTo(self)
             make.trailing.equalTo(self).inset(8)
         }
+        
+        addSubview(speakerImage)
+        speakerImage.snp.makeConstraints { make in
+            make.height.width.equalTo(17)
+            make.trailing.equalTo(self).inset(4)
+            make.bottom.equalTo(self).inset(4)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -116,6 +132,7 @@ class LikesCell: UICollectionViewCell {
         nameLabel.text = viewModel.songName
         albumImageView.kf.setImage(with: URL(string: viewModel.songImage ))
         durationLabel.text = Int(viewModel.songDuration).timeString()
+        speakerImage.isHidden = viewModel.isPlaying
     }
 
 }

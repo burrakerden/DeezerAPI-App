@@ -7,13 +7,17 @@
 
 import Foundation
 import UIKit
-
+import AVFoundation
 
 class LikesController: UICollectionViewController {
     
     //MARK: - Properties
 
     var items = [SongData]()
+    
+    var player: AVPlayer!
+    
+    var test = true
     
     //MARK: - Life Cycle
     
@@ -49,6 +53,22 @@ class LikesController: UICollectionViewController {
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 17)]
         self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
     }
+    
+    func avTest(url: URL) {
+        let playerItem:AVPlayerItem = AVPlayerItem(url: url)
+        let cell = LikesCell()
+        player = AVPlayer(playerItem: playerItem)
+        if test {
+            cell.viewModel?.isPlaying = true
+            player.play()
+            test.toggle()
+        } else {
+            cell.viewModel?.isPlaying = false
+            player.pause()
+            test.toggle()
+        }
+        collectionView.reloadData()
+    }
 }
 
 //MARK: - UICollectionView DataSource
@@ -66,6 +86,11 @@ extension LikesController {
         let item = items[indexPath.row]
         cell.viewModel = LikesViewModel(isLiked: item.isLiked, songDuration: item.songDuration, songImage: item.songImage ?? "", songName: item.songName ?? "", songPreview: item.songPreview ?? "")
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let url = items[indexPath.row].songPreview else {return}
+        avTest(url: URL(string: url) ?? URL(fileURLWithPath: ""))
     }
     
 }

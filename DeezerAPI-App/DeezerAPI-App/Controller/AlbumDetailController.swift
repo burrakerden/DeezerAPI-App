@@ -16,12 +16,7 @@ class AlbumDetailController: UICollectionViewController {
     
     let albumName: String?
     var albumImage: String?
-        
-    // Reference to managed object content
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    // Data for the table
-    var items = [SongData]()
+
     var namesTest = [String]()
     
     var album: [TracksResult] {
@@ -116,7 +111,6 @@ extension AlbumDetailController: FeedCellDelegate {
         if !song.boolTest {
             CoreDataService.addCoreData(songName: song.songName, songImage: song.image ?? "", songDuration: song.duration, songPreview: song.preview)
             fetchSongs()
-            
         } else {
             
             
