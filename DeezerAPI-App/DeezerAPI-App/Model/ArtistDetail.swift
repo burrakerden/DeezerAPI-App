@@ -9,7 +9,7 @@ import Foundation
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - ArtistDetailResult
 struct ArtistDetailResult: Codable {
     let id: Int?
     let name: String?

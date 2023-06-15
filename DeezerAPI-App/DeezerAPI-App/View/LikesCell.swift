@@ -25,7 +25,7 @@ class LikesCell: UICollectionViewCell {
         didSet { configure() }
     }
 
-    private let albumImageView: UIImageView = {
+    let albumImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
         iv.layer.cornerRadius = 6
@@ -35,7 +35,7 @@ class LikesCell: UICollectionViewCell {
         return iv
     }()
     
-    private let nameLabel: UILabel = {
+    let nameLabel: UILabel = {
         var label = UILabel()
         label.textColor = .white
         label.numberOfLines = 0
@@ -62,21 +62,22 @@ class LikesCell: UICollectionViewCell {
         return button
     }()
     
-    let speakerImage: UIImageView = {
+    var speakerImage: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(systemName: "speaker.wave.2")
+        iv.tintColor = .lightGray
         iv.contentMode = .scaleToFill
         iv.layer.cornerRadius = 6
         iv.clipsToBounds = true
+        iv.isHidden = true
         return iv
     }()
-    
-    
+        
     //MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-                
+        
         addSubview(albumImageView)
         albumImageView.snp.makeConstraints { make in
             make.leading.equalTo(self)
@@ -106,7 +107,7 @@ class LikesCell: UICollectionViewCell {
         addSubview(speakerImage)
         speakerImage.snp.makeConstraints { make in
             make.height.width.equalTo(17)
-            make.trailing.equalTo(self).inset(4)
+            make.trailing.equalTo(self).inset(6)
             make.bottom.equalTo(self).inset(4)
         }
     }
@@ -120,7 +121,14 @@ class LikesCell: UICollectionViewCell {
     @objc func didTapLike() {
         delegate?.cell(indexPath: index!.row)
     }
-
+    
+    func showSpeaker() {
+        speakerImage.isHidden = false
+    }
+    
+    func hideSpeaker() {
+        speakerImage.isHidden = true
+    }
     
     //MARK: - Helpers
     
@@ -132,7 +140,5 @@ class LikesCell: UICollectionViewCell {
         nameLabel.text = viewModel.songName
         albumImageView.kf.setImage(with: URL(string: viewModel.songImage ))
         durationLabel.text = Int(viewModel.songDuration).timeString()
-        speakerImage.isHidden = viewModel.isPlaying
     }
-
 }

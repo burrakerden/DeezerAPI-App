@@ -35,15 +35,6 @@ class ArtistsController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    //MARK: - Fetch Data
-    
-    
-    
-    //MARK: - Actions
-    
-    
-    
     //MARK: - Helpers
     
     func configureUI() {
@@ -91,7 +82,7 @@ extension ArtistsController {
 
 }
 
-//MARK: - UICollectionView Delegate FlowLayout  -- where we define size of cell
+//MARK: - UICollectionView Delegate FlowLayout
 
 extension ArtistsController: UICollectionViewDelegateFlowLayout {
     

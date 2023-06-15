@@ -61,6 +61,17 @@ class AlbumDetailCell: UICollectionViewCell {
         return button
     }()
     
+    var speakerImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(systemName: "speaker.wave.2")
+        iv.tintColor = .lightGray
+        iv.contentMode = .scaleToFill
+        iv.layer.cornerRadius = 6
+        iv.clipsToBounds = true
+        iv.isHidden = true
+        return iv
+    }()
+    
     
     //MARK: - Life Cycle
     
@@ -92,6 +103,13 @@ class AlbumDetailCell: UICollectionViewCell {
             make.centerY.equalTo(self)
             make.trailing.equalTo(self).inset(8)
         }
+        
+        addSubview(speakerImage)
+        speakerImage.snp.makeConstraints { make in
+            make.height.width.equalTo(17)
+            make.trailing.equalTo(self).inset(6)
+            make.bottom.equalTo(self).inset(4)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -104,6 +122,14 @@ class AlbumDetailCell: UICollectionViewCell {
         guard let viewModel else {return}
         delegate?.cell(didLike: viewModel)
     }
+    
+    func showSpeaker() {
+        speakerImage.isHidden = false
+    }
+    
+    func hideSpeaker() {
+        speakerImage.isHidden = true
+    }
 
     //MARK: - Helpers
     
@@ -111,8 +137,8 @@ class AlbumDetailCell: UICollectionViewCell {
         guard let viewModel else {return}
         backgroundColor = .white.withAlphaComponent(0.05)
         layer.cornerRadius = 6
-        likeButton.setImage(UIImage(systemName: viewModel.buttonImage), for: .normal)
         
+        likeButton.setImage(UIImage(systemName: viewModel.buttonImage), for: .normal)
         nameLabel.text = viewModel.songName
         albumImageView.kf.setImage(with: URL(string: viewModel.image ?? ""))
         durationLabel.text = viewModel.duration.timeString()

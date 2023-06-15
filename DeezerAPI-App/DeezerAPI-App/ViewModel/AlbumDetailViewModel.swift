@@ -9,8 +9,6 @@ import Foundation
 
 struct AlbumDetailViewModel {
     
-    var isLiked = false
-    
     let tracksResult: TracksResult
     
     let songNames: [String]

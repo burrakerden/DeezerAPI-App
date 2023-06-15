@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import AVFoundation
 
 
 class AlbumDetailController: UICollectionViewController {
@@ -17,7 +17,13 @@ class AlbumDetailController: UICollectionViewController {
     let albumName: String?
     var albumImage: String?
 
-    var namesTest = [String]()
+    var songNamesArr = [String]()
+    
+    var player: AVPlayer!
+    var test = true
+    
+    var currentIndexPath: IndexPath?
+    var previousIndexPath: IndexPath?
     
     var album: [TracksResult] {
         didSet { collectionView.reloadData() }
@@ -46,14 +52,13 @@ class AlbumDetailController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //MARK: - Fetch core data
     
     func fetchSongs() {
         CoreDataService.fetchCoreData(collectionView: collectionView) { songData in
             songData?.forEach { songNames in
                 guard let song = songNames.songName else {return}
-                self.namesTest.append(song)
+                self.songNamesArr.append(song)
             }
         }
     }
@@ -72,9 +77,36 @@ class AlbumDetailController: UICollectionViewController {
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 17)]
         self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
     }
+    
+    
+    func playSong(indexPath: IndexPath, items: [TracksResult]) {
+        
+        if let currentIndexPath = currentIndexPath {
+            previousIndexPath = currentIndexPath
+        }
+        currentIndexPath = indexPath
+        
+        guard let url = items[indexPath.row].preview else {return}
+        player = AVPlayer(playerItem: AVPlayerItem(url: URL(string: url) ?? URL(fileURLWithPath: "")))
+        
+        let currentCell = collectionView.cellForItem(at: indexPath) as? AlbumDetailCell
+        
+        if test {
+            currentCell?.showSpeaker()
+            player.play()
+        } else {
+            if currentIndexPath != previousIndexPath {
+                let previousCell = collectionView.cellForItem(at: previousIndexPath!) as? AlbumDetailCell
+                previousCell?.hideSpeaker()
+            }
+            currentCell?.hideSpeaker()
+            player.pause()
+        }
+        test.toggle()
+    }
 }
 
-//MARK: - UICollectionView DataSource
+    //MARK: - UICollectionView DataSource
 
 extension AlbumDetailController {
     
@@ -82,16 +114,21 @@ extension AlbumDetailController {
         return album.count
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        playSong(indexPath: indexPath, items: album)
+
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! AlbumDetailCell
-        cell.viewModel = AlbumDetailViewModel(tracksResult: album[indexPath.row], songNames: self.namesTest, image: self.albumImage)
+        cell.viewModel = AlbumDetailViewModel(tracksResult: album[indexPath.row], songNames: self.songNamesArr, image: self.albumImage)
         cell.delegate = self
         return cell
     }
     
 }
 
-//MARK: - UICollectionView Delegate FlowLayout  -- where we define size of cell
+    //MARK: - UICollectionView Delegate FlowLayout
 
 extension AlbumDetailController: UICollectionViewDelegateFlowLayout {
     
@@ -113,10 +150,6 @@ extension AlbumDetailController: FeedCellDelegate {
             fetchSongs()
         } else {
             
-            
-
         }
-        
     }
-
 }

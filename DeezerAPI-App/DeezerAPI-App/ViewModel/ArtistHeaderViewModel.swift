@@ -18,5 +18,4 @@ struct ArtistHeaderViewModel {
         self.name = name
         self.image = image
     }
-
 }

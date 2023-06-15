@@ -12,12 +12,15 @@ import AVFoundation
 class LikesController: UICollectionViewController {
     
     //MARK: - Properties
-
+    
     var items = [SongData]()
     
     var player: AVPlayer!
     
     var test = true
+
+    var currentIndexPath: IndexPath?
+    var previousIndexPath: IndexPath?
     
     //MARK: - Life Cycle
     
@@ -54,20 +57,31 @@ class LikesController: UICollectionViewController {
         self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
     }
     
-    func avTest(url: URL) {
-        let playerItem:AVPlayerItem = AVPlayerItem(url: url)
-        let cell = LikesCell()
-        player = AVPlayer(playerItem: playerItem)
-        if test {
-            cell.viewModel?.isPlaying = true
-            player.play()
-            test.toggle()
-        } else {
-            cell.viewModel?.isPlaying = false
-            player.pause()
-            test.toggle()
+    
+    func playSong(indexPath: IndexPath, items: [SongData]) {
+        
+        if let currentIndexPath = currentIndexPath {
+            previousIndexPath = currentIndexPath
         }
-        collectionView.reloadData()
+        currentIndexPath = indexPath
+        
+        guard let url = items[indexPath.row].songPreview else {return}
+        player = AVPlayer(playerItem: AVPlayerItem(url: URL(string: url) ?? URL(fileURLWithPath: "")))
+        
+        let currentCell = collectionView.cellForItem(at: indexPath) as? LikesCell
+        
+        if test {
+            currentCell?.showSpeaker()
+            player.play()
+        } else {
+            if currentIndexPath != previousIndexPath {
+                let previousCell = collectionView.cellForItem(at: previousIndexPath!) as? LikesCell
+                previousCell?.hideSpeaker()
+            }
+            currentCell?.hideSpeaker()
+            player.pause()
+        }
+        test.toggle()
     }
 }
 
@@ -79,23 +93,22 @@ extension LikesController {
         return items.count
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        playSong(indexPath: indexPath, items: items)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! LikesCell
         cell.delegate = self
         cell.index = indexPath
         let item = items[indexPath.row]
         cell.viewModel = LikesViewModel(isLiked: item.isLiked, songDuration: item.songDuration, songImage: item.songImage ?? "", songName: item.songName ?? "", songPreview: item.songPreview ?? "")
+        
         return cell
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let url = items[indexPath.row].songPreview else {return}
-        avTest(url: URL(string: url) ?? URL(fileURLWithPath: ""))
-    }
-    
 }
 
-//MARK: - UICollectionView Delegate FlowLayout  -- where we define size of cell
+//MARK: - UICollectionView Delegate FlowLayout
 
 extension LikesController: UICollectionViewDelegateFlowLayout {
     
@@ -117,6 +130,4 @@ extension LikesController: LikeCellDelegate {
         CoreDataService.deleteCoreData(indexPath: indexPath, items: self.items)
         self.fetchSongs()
     }
-
-    
 }

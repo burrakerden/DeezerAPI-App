@@ -12,12 +12,12 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - AlbumsDetail
 struct AlbumsDetail: Codable {
     let data: [AlbumsDetailResult]?
 }
 
-// MARK: - Datum
+// MARK: - AlbumsDetailResult
 struct AlbumsDetailResult: Codable {
     let id: Int?
     let title: String?

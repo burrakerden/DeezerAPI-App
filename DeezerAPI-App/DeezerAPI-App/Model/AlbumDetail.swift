@@ -8,7 +8,6 @@
 import Foundation
 
 // MARK: - AlbumDetail
-
 struct AlbumDetail: Codable {
     let tracks: Tracks?
 

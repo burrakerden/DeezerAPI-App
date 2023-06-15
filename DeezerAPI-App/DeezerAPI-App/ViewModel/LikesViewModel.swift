@@ -15,17 +15,7 @@ struct LikesViewModel {
     var songImage: String
     var songName: String
     var songPreview: String
-    var isPlaying = false
-    
-//    init(isLiked: Bool, songDuration: Int64, songImage: String, songName: String, songPreview: String, isPlaying: Bool) {
-//        self.isLiked = isLiked
-//        self.songDuration = songDuration
-//        self.songImage = songImage
-//        self.songName = songName
-//        self.songPreview = songPreview
-//        self.isPlaying = isPlaying
-//    }
-
+//    var isPlaying = false
 }
 
 

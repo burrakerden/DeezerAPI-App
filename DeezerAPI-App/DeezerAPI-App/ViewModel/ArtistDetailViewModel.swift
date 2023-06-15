@@ -15,7 +15,6 @@ struct ArtistDetailViewModel {
     
     var imageUrl: URL? { return URL(string: result.pictureBig ?? "") }
 
-    
     init(result: ArtistDetailResult) {
         self.result = result
     }

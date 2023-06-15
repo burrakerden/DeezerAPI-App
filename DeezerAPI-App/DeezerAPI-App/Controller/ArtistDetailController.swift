@@ -93,8 +93,7 @@ extension ArtistDetailController {
     }
 }
 
-//MARK: - UICollectionView Delegate FlowLayout  -- where we define size of cell
-
+    //MARK: - UICollectionView Delegate FlowLayout
 extension ArtistDetailController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
