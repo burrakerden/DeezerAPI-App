@@ -15,7 +15,6 @@ struct LikesViewModel {
     var songImage: String
     var songName: String
     var songPreview: String
-//    var isPlaying = false
 }
 
 

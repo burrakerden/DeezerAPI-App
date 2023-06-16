@@ -76,6 +76,7 @@ class AlbumDetailController: UICollectionViewController {
         self.navigationController?.navigationBar.backgroundColor = .black
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 17)]
         self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
+        self.navigationItem.backButtonTitle = ""
     }
     
     

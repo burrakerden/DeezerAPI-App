@@ -17,7 +17,4 @@ struct ArtistsViewModel {
     
     var imageUrl: URL? { return URL(string: result.pictureMedium ?? "") }
 
-    init(result: ArtistsResult) {
-        self.result = result
-    }
 }

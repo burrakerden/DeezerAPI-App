@@ -17,7 +17,4 @@ struct GenreViewModel {
     
     var imageUrl: URL? { return URL(string: result.pictureXl ?? "") }
 
-    init(result: GenreResult) {
-        self.result = result
-    }
 }
