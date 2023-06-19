@@ -47,3 +47,9 @@ KingFisher library simplifies the process of downloading and caching images from
 * JGProgressHUD: 
 
 JGProgressHUD is a lightweight and customizable progress HUD used to indicate loading states or operations in the application.
+
+
+
+## ↓↓ Short Gif ↓↓
+![RocketSim_Recording_iPhone_13_2023-06-19_12 33 09](https://github.com/burrakerden/DeezerAPI-App/assets/116464498/a1f88c77-be6c-497c-9996-c8609e3ed22c)
+
